@@ -1,12 +1,9 @@
 import axios from "./axios.ts";
 
-
-type Book = {
-
-}
+type Book = {};
 
 export default {
-    getBooks(page: int = 1): Book[] {
-        axios.get("")
-    }
-}
+  getBooks(page: int = 1): Book[] {
+    axios.get("");
+  },
+};

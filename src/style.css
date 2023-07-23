@@ -68,12 +68,13 @@ button:focus-visible {
 @media print {
   body *:not(.printable, .printable *) {
     visibility: hidden;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     height: 0;
   }
 
-  .printable, .printable * {
+  .printable,
+  .printable * {
     visibility: visible;
   }
 }

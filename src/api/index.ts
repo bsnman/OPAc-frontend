@@ -1,5 +1,3 @@
-
-
 export default {
-    bookApi: bookApi
-}
+  bookApi: bookApi,
+};

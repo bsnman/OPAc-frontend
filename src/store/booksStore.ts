@@ -1,13 +1,10 @@
-import { defineStore } from 'pinia'
+import { defineStore } from "pinia";
 import axios from "../api/axios.ts";
 
+export const useBooksStore = defineStore("bookStore", () => {
+  const books = reactive("Eduardo");
+  const doubleCount = computed(() => count.value * 2);
+  function getBookStore() {}
 
-
-export const useBooksStore = defineStore('bookStore', () => {
-    const books = reactive('Eduardo')
-    const doubleCount = computed(() => count.value * 2)
-    function getBookStore() {
-    }
-
-    return { count, name, doubleCount, increment }
-})
+  return { count, name, doubleCount, increment };
+});
