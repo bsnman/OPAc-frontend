@@ -2,7 +2,6 @@
 // These can be imported from other files
 import HomePage from "./components/homepage/HomePage.vue";
 import PrintCallNumber from "./components/reports/PrintCallNumber.vue";
-import App from "./App.vue";
 import { createRouter, createWebHashHistory } from "vue-router";
 
 // 2. Define some routes
