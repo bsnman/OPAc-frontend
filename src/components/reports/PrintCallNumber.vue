@@ -4,23 +4,31 @@ import { useBooksStore } from "../../store/booksStore.ts";
 
 const printPageElement = ref<HTMLDivElement | null>(null);
 
-const { books, getBooks } = useBooksStore();
+const bookStore = useBooksStore();
 
 onMounted(() => {
-  getBooks();
+  bookStore.getBooks();
 });
 
 function print() {
   window.print();
 }
+function loadMoreClick() {
+  bookStore.getBooksNextPage();
+}
 </script>
 
 <template>
   <div class="print-call-number">
+    <button @click="print">Print</button>
+    &nbsp;
+    <button v-if="bookStore.hasNextPage" @click="loadMoreClick">
+      Load More
+    </button>
     <div class="printable">
       <div ref="printPageElement" class="print-page">
         <div
-          v-for="book in books.books"
+          v-for="book in bookStore.state.books"
           class="call-number-container"
           :key="book.accession_number"
         >
@@ -43,7 +51,6 @@ function print() {
         </div>
       </div>
     </div>
-    <button @click="print">Print</button>
   </div>
 </template>
 
