@@ -14,7 +14,6 @@ export const useBooksStore = defineStore("bookStore", () => {
     state.books = paginated_books.results;
     count.value = paginated_books.count;
     currentPage.value = 1;
-    console.log(!!paginated_books.next);
     hasNextPage.value = !!paginated_books.next;
   }
   async function getBooksNextPage() {

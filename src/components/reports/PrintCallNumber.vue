@@ -1,13 +1,17 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { useBooksStore } from "../../store/booksStore.ts";
+import { useAreasStore } from "../../store/areasStore.ts";
+import { Book } from "../../api/bookApi.ts";
 
 const printPageElement = ref<HTMLDivElement | null>(null);
 
 const bookStore = useBooksStore();
+const areaStore = useAreasStore();
 
 onMounted(() => {
   bookStore.getBooks();
+  areaStore.getAreaCodeMapping();
 });
 
 function print() {
@@ -15,6 +19,20 @@ function print() {
 }
 function loadMoreClick() {
   bookStore.getBooksNextPage();
+}
+
+function getLocatorCode(book: Book): string {
+  const library = book.library;
+  const area_codes = book.areas
+    .map((area) => areaStore.area_code_mapping[area])
+    .filter((area_code) => area_code !== "");
+
+  let locator_code = library;
+
+  if (area_codes.length > 0) {
+    locator_code += `/${area_codes.join("")}`;
+  }
+  return locator_code;
 }
 </script>
 
@@ -33,8 +51,7 @@ function loadMoreClick() {
           :key="book.accession_number"
         >
           <p>
-            {{ book.library }}<template v-if="book.area">/</template
-            >{{ book.area }}
+            {{ getLocatorCode(book) }}
           </p>
           <p>
             {{ book.ddc }}

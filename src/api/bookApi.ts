@@ -5,7 +5,7 @@ import { PaginatedResponse } from "./index.ts";
 export type Book = {
   id: number;
   library: string;
-  area: string[];
+  areas: string[];
   ddc: string;
   author_number: string;
   publication_year: number;
@@ -14,15 +14,34 @@ export type Book = {
   catalogue_number: string;
 };
 
+export type AreaMapping = {
+  [key: string]: string[];
+};
+export type AreaCodeMapping = {
+  [key: string]: string;
+};
+
 export default {
   async getBooks(page: number = 1): Promise<PaginatedResponse<Book>> {
     const response = await axios.get<PaginatedResponse<Book>>(
-      urls["get_all_books"],
+      urls.get_all_books,
       {
         params: {
           page: page,
         },
       },
+    );
+
+    return response.data;
+  },
+  async getAreaMapping(): Promise<AreaMapping> {
+    const response = await axios.get<AreaMapping>(urls.get_area_mapping);
+
+    return response.data;
+  },
+  async getAreaCodeMapping(): Promise<AreaCodeMapping> {
+    const response = await axios.get<AreaCodeMapping>(
+      urls.get_area_code_mapping,
     );
 
     return response.data;
