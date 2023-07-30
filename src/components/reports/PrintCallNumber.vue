@@ -23,14 +23,10 @@ function loadMoreClick() {
 
 function getLocatorCode(book: Book): string {
   const library = book.library;
-  const area_codes = book.areas
-    .map((area) => areaStore.area_code_mapping[area])
-    .filter((area_code) => area_code !== "");
-
   let locator_code = library;
 
-  if (area_codes.length > 0) {
-    locator_code += `/${area_codes.join("")}`;
+  if (book.areas.length > 0) {
+    locator_code += `/${book.areas.join("")}`;
   }
   return locator_code;
 }
