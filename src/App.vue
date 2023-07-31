@@ -6,6 +6,7 @@
     <div>
       <router-link to="/print-call-number">Go to Print Call Number</router-link>
     </div>
+    <br />
     <router-view></router-view>
   </div>
 </template>

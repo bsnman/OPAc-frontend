@@ -46,4 +46,13 @@ export default {
 
     return response.data;
   },
+  async postImportExcelFile(formData: FormData): Promise<boolean> {
+    const response = await axios.post(urls.import_excel_file, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    return response.status == 204;
+  },
 };

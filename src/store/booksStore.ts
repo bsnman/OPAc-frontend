@@ -30,5 +30,11 @@ export const useBooksStore = defineStore("bookStore", () => {
     hasNextPage.value = !!paginated_books.next;
   }
 
-  return { state, getBooks, getBooksNextPage, hasNextPage };
+  async function importFile(formData: FormData): Promise<boolean> {
+    const imported = await api.bookApi.postImportExcelFile(formData);
+
+    return imported;
+  }
+
+  return { state, getBooks, getBooksNextPage, importFile, hasNextPage };
 });
