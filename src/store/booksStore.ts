@@ -36,5 +36,5 @@ export const useBooksStore = defineStore("bookStore", () => {
     return imported;
   }
 
-  return { state, getBooks, getBooksNextPage, importFile, hasNextPage };
+  return { state, count, getBooks, getBooksNextPage, importFile, hasNextPage };
 });

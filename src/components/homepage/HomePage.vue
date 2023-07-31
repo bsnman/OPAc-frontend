@@ -1,19 +1,34 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useBooksStore } from "../../store/booksStore.ts";
 
 const bookStore = useBooksStore();
 const formEl = ref<HTMLFormElement>();
-function clickImportExcel() {
+async function clickImportExcel() {
   const formData = new FormData(formEl.value);
 
-  bookStore.importFile(formData);
+  const imported = await bookStore.importFile(formData);
+
+  if (imported) {
+    bookStore.getBooks();
+  }
 }
+
+onMounted(() => {
+  bookStore.getBooks();
+});
 </script>
 
 <template>
   <div>
     <h2 class="title">Julie Amores OPAC</h2>
+
+    <div>
+      <div>Number of books</div>
+      <div>
+        {{ bookStore.count }}
+      </div>
+    </div>
 
     <div>
       <form ref="formEl" @submit.prevent>
