@@ -1,0 +1,23 @@
+.btn {
+  padding: 0.6em 1.2em;
+  border-radius: 4px;
+  box-shadow: none;
+  background-color: var(--primary);
+  border: none;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+
+
+
+  &:hover {
+    outline: 1px solid var(--hover-outline);
+    background-color: var(--primary-hover);
+  }
+
+  &:disabled {
+    background-color: var(--primary-disabled);
+    outline: none;
+    cursor: not-allowed;
+  }
+}
