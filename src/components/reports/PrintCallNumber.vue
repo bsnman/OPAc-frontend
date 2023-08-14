@@ -5,6 +5,7 @@ import { useAreasStore } from "../../store/areasStore.ts";
 import { Book } from "../../api/bookApi.ts";
 
 const printPageElement = ref<HTMLDivElement | null>(null);
+const smallBox = ref<boolean>(false);
 
 const bookStore = useBooksStore();
 const areaStore = useAreasStore();
@@ -34,6 +35,10 @@ function getLocatorCode(book: Book): string {
 
 <template>
   <div class="print-call-number">
+    <div>
+      <input type="checkbox" v-model="smallBox" />
+      Small Box
+    </div>
     <button @click="print">Print</button>
     &nbsp;
     <button v-if="bookStore.hasNextPage" @click="loadMoreClick">
@@ -44,6 +49,7 @@ function getLocatorCode(book: Book): string {
         <div
           v-for="book in bookStore.state.books"
           class="call-number-container"
+          :class="{ 'small-box': smallBox }"
           :key="book.accession_number"
         >
           <p>
@@ -94,6 +100,16 @@ function getLocatorCode(book: Book): string {
     margin: 0;
     line-height: 19pt;
     text-align: left;
+  }
+
+  &.small-box {
+    font-size: 7.8pt;
+    height: 64.5pt;
+    min-width: 40pt;
+
+    p {
+      line-height: 13pt;
+    }
   }
 }
 </style>
