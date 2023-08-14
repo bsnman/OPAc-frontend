@@ -14,7 +14,7 @@
         <router-link to="/print-call-number">Catalog</router-link>
       </div>
       <div>
-        <router-link to="/reports">Reports</router-link>
+        <router-link to="/reports/call-number">Reports</router-link>
       </div>
       <div>
         <router-link to="/reports">Admin</router-link>
@@ -34,10 +34,11 @@
 }
 
 .app-title {
+  width: 200px;
   padding: 1rem;
   font-size: 1.2em;
   font-weight: bold;
-  border-right: 1px solid #aaa;
+  border-right: 1px solid var(--border-color);
 }
 
 .app-router-links {

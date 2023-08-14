@@ -1,13 +1,18 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useSideBarStore } from "../../store/sideBarStore.ts";
+
+const sideBarStore = useSideBarStore();
+</script>
 
 <template>
   <div class="sidebar-component">
-    <div><router-link to="/">Import File</router-link></div>
-    <div>
-      <router-link to="/print-call-number">Print Call Number</router-link>
-    </div>
-    <div>
-      <router-link to="/print-call-number">Teachers</router-link>
+    <div
+      v-for="sidebar_link in sideBarStore.sidebar_links"
+      :key="sidebar_link.path"
+    >
+      <router-link :to="sidebar_link.path">{{
+        sidebar_link.label
+      }}</router-link>
     </div>
   </div>
 </template>

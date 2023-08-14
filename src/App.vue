@@ -26,7 +26,7 @@ import NavBar from "./components/common/NavBar.vue";
   height: 100%;
 }
 .sidebar-container {
-  border-right: 1px solid #000;
+  border-right: 1px solid var(--border-color);
 }
 
 .workspace-container {
