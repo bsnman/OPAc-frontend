@@ -2,7 +2,7 @@
 // These can be imported from other files
 import HomePage from "./components/homepage/HomePage.vue";
 import PrintCallNumber from "./components/reports/PrintCallNumber.vue";
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import { SideBarTypeEnum, useSideBarStore } from "./store/sideBarStore.ts";
 
 // 2. Define some routes
@@ -37,7 +37,7 @@ const routes = [
 // keep it simple for now.
 const router = createRouter({
   // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes, // short for `routes: routes`
 });
 
