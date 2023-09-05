@@ -27,17 +27,11 @@ type AllSidebarLinkType = Partial<
 const ALL_SIDEBAR_LINK: AllSidebarLinkType = {
   [SideBarTypeEnum.HOME]: [],
   [SideBarTypeEnum.DASHBOARD]: [],
-  [SideBarTypeEnum.CATALOG]: [
-    {
-      label: "Call Number",
-      path: "/print-call-number",
-      type: LinkType.LINK,
-    },
-  ],
+  [SideBarTypeEnum.CATALOG]: [],
   [SideBarTypeEnum.REPORTS]: [
     {
       label: "Call Number",
-      path: "/print-call-number",
+      path: "/reports/call-number",
       type: LinkType.LINK,
     },
   ],
