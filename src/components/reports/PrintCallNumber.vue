@@ -3,6 +3,7 @@ import { ref, onMounted } from "vue";
 import { useBooksStore } from "../../store/booksStore.ts";
 import { useAreasStore } from "../../store/areasStore.ts";
 import { Book } from "../../api/bookApi.ts";
+import PrintableDiv from "../common/PrintableDiv.vue";
 
 const printPageElement = ref<HTMLDivElement | null>(null);
 const smallBox = ref<boolean>(false);
@@ -18,6 +19,7 @@ onMounted(() => {
 function print() {
   window.print();
 }
+
 function loadMoreClick() {
   bookStore.getBooksNextPage();
 }
@@ -44,7 +46,7 @@ function getLocatorCode(book: Book): string {
     <button v-if="bookStore.hasNextPage" @click="loadMoreClick">
       Load More
     </button>
-    <div class="printable">
+    <PrintableDiv>
       <div ref="printPageElement" class="print-page">
         <div
           v-for="book in bookStore.state.books"
@@ -69,7 +71,7 @@ function getLocatorCode(book: Book): string {
           </p>
         </div>
       </div>
-    </div>
+    </PrintableDiv>
   </div>
 </template>
 
@@ -89,8 +91,8 @@ function getLocatorCode(book: Book): string {
   font-size: 12.2pt;
   color: #111;
 
-  min-width: 77pt;
-  height: 103pt;
+  min-width: 94pt;
+  height: 115pt;
   border: 1px solid #000;
   margin: 11px 7px;
   padding: 5pt 8pt;
@@ -104,8 +106,8 @@ function getLocatorCode(book: Book): string {
 
   &.small-box {
     font-size: 7.8pt;
-    height: 64.5pt;
-    min-width: 40pt;
+    height: 76.5pt;
+    min-width: 57pt;
 
     p {
       line-height: 13pt;
