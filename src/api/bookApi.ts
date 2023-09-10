@@ -4,6 +4,7 @@ import { PaginatedResponse } from "./index.ts";
 
 export type Book = {
   id: number;
+  title: string;
   library: string;
   areas: string[];
   ddc: string;
