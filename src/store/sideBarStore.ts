@@ -27,7 +27,19 @@ type AllSidebarLinkType = Partial<
 const ALL_SIDEBAR_LINK: AllSidebarLinkType = {
   [SideBarTypeEnum.HOME]: [],
   [SideBarTypeEnum.DASHBOARD]: [],
-  [SideBarTypeEnum.CATALOG]: [],
+  [SideBarTypeEnum.CATALOG]: [
+    {
+      label: "Books",
+      path: "/catalog/books",
+      type: LinkType.LINK,
+    },
+
+    {
+      label: "Borrow",
+      path: "/catalog/borrow",
+      type: LinkType.LINK,
+    },
+  ],
   [SideBarTypeEnum.REPORTS]: [
     {
       label: "Call Number",
@@ -39,7 +51,7 @@ const ALL_SIDEBAR_LINK: AllSidebarLinkType = {
   [SideBarTypeEnum.SETTINGS]: [
     {
       label: "Import Books",
-      path: "/import-books",
+      path: "/settings/import-books",
       type: LinkType.LINK,
     },
   ],

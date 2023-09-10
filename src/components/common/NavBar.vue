@@ -21,7 +21,7 @@ const items = ref([
   {
     label: "Catalog",
     icon: "pi pi-fw pi-pencil",
-    route: "/catalog",
+    route: "/catalog/books",
   },
   {
     label: "Reports",
