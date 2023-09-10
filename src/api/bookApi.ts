@@ -12,6 +12,7 @@ export type Book = {
   accession_number: string;
   copy_number: string;
   catalogue_number: string;
+  volume: string;
 };
 
 export type AreaMapping = {

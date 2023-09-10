@@ -66,6 +66,9 @@ function getLocatorCode(book: Book): string {
           <p>
             {{ book.publication_year }}
           </p>
+          <p v-if="book.volume">
+            {{ book.volume }}
+          </p>
           <p v-if="book.copy_number">
             {{ book.copy_number }}
           </p>
